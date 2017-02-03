@@ -1,0 +1,30 @@
+server:
+  port: 7700
+
+spring:
+  application:
+    name: microservice-branding-provider
+  datasource:
+    url:  jdbc:mysql://172.16.2.95:3306/cluster
+    username: d3
+    password: ondemand
+    driver-class-name: com.mysql.jdbc.Driver
+
+logging:
+  level:
+   root: INFO
+   com.zpq.cloud: DEBUG
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://admin:admin123@localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
+
+
+
+
+
+
